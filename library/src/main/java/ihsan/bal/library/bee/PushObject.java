@@ -1,0 +1,21 @@
+package ihsan.bal.library.bee;
+
+import android.content.Context;
+import android.content.Intent;
+
+/**
+ * Created by ihsan on 02/05/15.
+ */
+public class PushObject {
+
+    public void pushBeeObject(Context context, Object object, Class activity) {
+        boolean beenned = ObjectEngine.savePushedObject(context, object);
+        if (beenned)
+            context.startActivity(new Intent(context, activity));
+    }
+
+    public boolean pushBeeObject(Context context, Object object) {
+        return ObjectEngine.savePushedObject(context, object);
+    }
+
+}
