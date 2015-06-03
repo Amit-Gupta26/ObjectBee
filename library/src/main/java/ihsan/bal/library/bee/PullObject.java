@@ -9,8 +9,6 @@ import ihsan.bal.library.engine.ObjectEngine;
  */
 public class PullObject {
 
-
-
     public Object pullBeeObject(Context context, Class classses) {
         Object object = ObjectEngine.getPullObject(context, classses);
         return object;
