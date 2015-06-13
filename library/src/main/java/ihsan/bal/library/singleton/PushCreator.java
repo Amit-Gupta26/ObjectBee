@@ -1,6 +1,7 @@
 package ihsan.bal.library.singleton;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 
 import ihsan.bal.library.base.BaseBeeModel;
 import ihsan.bal.library.bee.PushObject;
@@ -32,9 +33,20 @@ public class PushCreator {
         this.data = data;
     }
 
-    public void push(Class activityClass){
+    /**
+     * Save data and start activity
+     * */
+    public void pushAndStart(@NonNull Class activityClass){
         PushObject pushObject = new PushObject();
         pushObject.pushBeeObject(context,data,activityClass);
+    }
+
+    /**
+     * Only save data not starting activity
+     * */
+    public void push(){
+        PushObject pushObject = new PushObject();
+        pushObject.pushBeeObject(context,data);
     }
 
     public static class Builder {

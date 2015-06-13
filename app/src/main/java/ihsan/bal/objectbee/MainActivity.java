@@ -19,7 +19,8 @@ public class MainActivity extends Activity {
         model.title = "Pushed A model";
         //pushObject.pushBeeObject(this,model,DetailActivity.class);
 
-        Bee.with(this).been(model).push(DetailActivity.class);
+        Bee.with(this).been(model).pushAndStart(DetailActivity.class);
+
     }
 
 }
