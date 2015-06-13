@@ -13,7 +13,7 @@ public class PushObject {
     public void pushBeeObject(Context context, Object object, Class activity) {
         boolean beenned = ObjectEngine.savePushedObject(context, object);
         if (beenned)
-            context.startActivity(new Intent(context, activity));
+            context.startActivity(new Intent(context, activity).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
     }
 
     public boolean pushBeeObject(Context context, Object object) {

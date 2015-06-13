@@ -2,6 +2,7 @@ package ihsan.bal.library.singleton;
 
 import android.content.Context;
 
+import ihsan.bal.library.base.BaseBeeModel;
 import ihsan.bal.library.bee.PullObject;
 import ihsan.bal.library.bee.PushObject;
 import ihsan.bal.library.engine.ObjectEngine;
@@ -35,8 +36,8 @@ public class Bee {
         this.engine = engine;
     }
 
-    public void push(){
-        push.pushBeeObject(context,null,Bee.class);
+    public PushCreator been(BaseBeeModel data){
+        return new PushCreator(context,singleton,data);
     }
 
     public void pull(){
