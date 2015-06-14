@@ -78,6 +78,20 @@ BaseModel model = new BaseModel();
 Bee.with(this).been(model).pushAndStart(DetailActivity.class);
 ```
 
+If you want do save data
+```java
+BaseModel model = new BaseModel();
+        model.title = "Pushed A model";
+Bee.with(this).been(model).push();
+```
+And get the data (Will contribute)
+```java
+Bee.with(this).pull(BaseModel.class);
+```
+And get the data and delete on catche (Will contribute)
+```java
+Bee.with(this).pull(BaseModel.class).delete();
+```
 
 
 Licence
