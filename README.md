@@ -80,16 +80,15 @@ Bee.with(this).been(model).pushAndStart(DetailActivity.class);
 
 
 
-License
---------
-
-    Copyright 2013 Square, Inc.
+Licence
+--------------
+Copyright 2015 İHSAN BAL
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
     You may obtain a copy of the License at
 
-       http://www.apache.org/licenses/LICENSE-2.0
+    http://www.apache.org/licenses/LICENSE-2.0
 
     Unless required by applicable law or agreed to in writing, software
     distributed under the License is distributed on an "AS IS" BASIS,
@@ -97,7 +96,6 @@ License
     See the License for the specific language governing permissions and
     limitations under the License.
 
-
- [1]: http://square.github.io/picasso/
- [2]: https://search.maven.org/remote_content?g=com.squareup.picasso&a=picasso&v=LATEST
- [snap]: https://oss.sonatype.org/content/repositories/snapshots/
+Author
+--------------
+[İHSAN BAL](https://github.com/ihsanbal)
