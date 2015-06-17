@@ -3,6 +3,7 @@ ObjectBee
 
 A simple data transporte library
 
+[![Build Status](https://travis-ci.org/ihsanbal/ObjectBee.svg?branch=master)](https://travis-ci.org/ihsanbal/ObjectBee)
 
 Download
 --------
