@@ -87,8 +87,5 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 22 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="jackson-annotations-2.6.0-rc2" level="project" />
-    <orderEntry type="library" exported="" name="jackson-databind-2.6.0-rc2" level="project" />
-    <orderEntry type="library" exported="" name="jackson-core-2.6.0-rc2" level="project" />
   </component>
 </module>

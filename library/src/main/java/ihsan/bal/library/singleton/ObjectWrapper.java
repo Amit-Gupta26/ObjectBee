@@ -38,9 +38,9 @@ public class ObjectWrapper {
      * Only save classes not starting activity
      * */
     public void converToObjectAndPush(String jsonString) throws IOException {
-        com.fasterxml.jackson.databind.ObjectMapper mapper = new com.fasterxml.jackson.databind.ObjectMapper();
-        Object obj = mapper.readValue(jsonString, classes);
-        bee.been((BeeModel) obj).push();
+        //com.fasterxml.jackson.databind.ObjectMapper mapper = new com.fasterxml.jackson.databind.ObjectMapper();
+        //Object obj = mapper.readValue(jsonString, classes);
+        //bee.been((BeeModel) obj).push();
     }
 
     public static class Builder {

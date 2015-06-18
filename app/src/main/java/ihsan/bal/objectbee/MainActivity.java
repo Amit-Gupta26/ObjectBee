@@ -20,13 +20,9 @@ public class MainActivity extends Activity {
         model.referencesname = ":tag1";
         model.title = "Pushed A model";
 
-        //Bee.with(this).been(model).pushAndStart(DetailActivity.class);
-        try {
-            Bee.with(this).mapper(ViewModel.class).converToObjectAndPush("{\\\"name\\\":\\\"Bob\\\", \\\"age\\\":13}");
-        } catch (IOException e) {
+        Bee.with(this).been(model).pushAndStart(DetailActivity.class);
+        // Bee.with(this).mapper(ViewModel.class).converToObjectAndPush("{\\\"name\\\":\\\"Bob\\\", \\\"age\\\":13}");
 
-
-        }
     }
 
 }
