@@ -91,7 +91,7 @@ Bee.with(this).pull(BaseModel.class);
 ```
 And get the data and delete on catche (Will contribute)
 ```java
-Bee.with(this).pull(BaseModel.class).delete();
+Bee.with(this).pull(BaseModel.class,true);
 ```
 
 
