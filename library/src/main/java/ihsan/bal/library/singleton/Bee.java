@@ -1,7 +1,6 @@
 package ihsan.bal.library.singleton;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 
 import ihsan.bal.library.base.BaseBeeModel;
 import ihsan.bal.library.bee.PullObject;
@@ -19,7 +18,7 @@ public class Bee {
     final PushObject push;
     final ObjectEngine engine;
 
-    public static Bee with(@NonNull Context context) {
+    public static Bee with( Context context) {
         if (singleton == null) {
             synchronized (Bee.class) {
                 if (singleton == null) {

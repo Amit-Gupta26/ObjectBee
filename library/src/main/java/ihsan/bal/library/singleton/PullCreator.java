@@ -1,8 +1,6 @@
 package ihsan.bal.library.singleton;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-
 import ihsan.bal.library.base.BaseBeeModel;
 import ihsan.bal.library.bee.PullObject;
 import ihsan.bal.library.bee.PushObject;
@@ -37,12 +35,12 @@ public class PullCreator {
     /**
      * Save data and start activity
      */
-    public Object pull(@NonNull Class baseModelClass) {
+    public Object pull(Class baseModelClass) {
         PullObject pullObject = new PullObject();
         return pullObject.pullBeeObject(context, baseModelClass);
     }
 
-    public Object pull(@NonNull Class baseModelClass, boolean delete) {
+    public Object pull(Class baseModelClass, boolean delete) {
         PullObject pullObject = new PullObject();
         return pullObject.pullBeeObject(context, baseModelClass, delete);
     }
