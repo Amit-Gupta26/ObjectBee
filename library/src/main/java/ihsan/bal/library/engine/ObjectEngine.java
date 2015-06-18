@@ -8,7 +8,7 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-import ihsan.bal.library.base.BaseBeeModel;
+import ihsan.bal.library.base.BeeModel;
 
 /**
  * Created by ihsan on 02/05/15.
@@ -58,8 +58,8 @@ public class ObjectEngine {
             } catch (Exception e) {
             } finally {
                 if (simpleClass != null) {
-                    BaseBeeModel baseBeeModel = (BaseBeeModel) simpleClass;
-                    if (baseBeeModel.deletepullobject)
+                    BeeModel beeModel = (BeeModel) simpleClass;
+                    if (beeModel.deletepullobject)
                         suspend_f.delete();
                 } else
                     return null;
@@ -89,8 +89,8 @@ public class ObjectEngine {
             } catch (Exception e) {
             } finally {
                 if (simpleClass != null) {
-                    BaseBeeModel baseBeeModel = (BaseBeeModel) simpleClass;
-                    if (baseBeeModel.deletepullobject || clearcache)
+                    BeeModel beeModel = (BeeModel) simpleClass;
+                    if (beeModel.deletepullobject || clearcache)
                         suspend_f.delete();
                 } else
                     return null;

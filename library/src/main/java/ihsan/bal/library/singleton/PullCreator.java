@@ -1,7 +1,7 @@
 package ihsan.bal.library.singleton;
 
 import android.content.Context;
-import ihsan.bal.library.base.BaseBeeModel;
+import ihsan.bal.library.base.BeeModel;
 import ihsan.bal.library.bee.PullObject;
 import ihsan.bal.library.bee.PushObject;
 
@@ -13,9 +13,9 @@ public class PullCreator {
     static volatile PullCreator singleton = null;
     private final Context context;
     final Bee bee;
-    final BaseBeeModel data;
+    final BeeModel data;
 
-    public static PullCreator with(Context context, Bee bee, BaseBeeModel data) {
+    public static PullCreator with(Context context, Bee bee, BeeModel data) {
         if (singleton == null) {
             synchronized (PullCreator.class) {
                 if (singleton == null) {
@@ -26,7 +26,7 @@ public class PullCreator {
         return singleton;
     }
 
-    PullCreator(Context context, Bee bee, BaseBeeModel data) {
+    PullCreator(Context context, Bee bee, BeeModel data) {
         this.context = context;
         this.bee = bee;
         this.data = data;
@@ -56,12 +56,12 @@ public class PullCreator {
     public static class Builder {
         private final Context context;
         private final Bee bee;
-        private final BaseBeeModel data;
+        private final BeeModel data;
 
         /**
          * Start building a new {@link PullCreator} instance.
          */
-        public Builder(Context context, Bee bee, BaseBeeModel data) {
+        public Builder(Context context, Bee bee, BeeModel data) {
             if (context == null) {
                 throw new IllegalArgumentException("Context must not be null.");
             }
@@ -76,7 +76,7 @@ public class PullCreator {
         public PullCreator build() {
             Context context = this.context;
             Bee bee = this.bee;
-            BaseBeeModel data = this.data;
+            BeeModel data = this.data;
             return new PullCreator(context, bee, data);
         }
     }

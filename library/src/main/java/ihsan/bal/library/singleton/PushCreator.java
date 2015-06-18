@@ -2,7 +2,7 @@ package ihsan.bal.library.singleton;
 
 import android.content.Context;
 
-import ihsan.bal.library.base.BaseBeeModel;
+import ihsan.bal.library.base.BeeModel;
 import ihsan.bal.library.bee.PushObject;
 
 /**
@@ -13,9 +13,9 @@ public class PushCreator {
     static volatile PushCreator singleton = null;
     private final Context context;
     final Bee bee;
-    final BaseBeeModel data;
+    final BeeModel data;
 
-    public static PushCreator with(Context context,Bee bee,BaseBeeModel data) {
+    public static PushCreator with(Context context,Bee bee,BeeModel data) {
         if (singleton == null) {
             synchronized (PushCreator.class) {
                 if (singleton == null) {
@@ -26,7 +26,7 @@ public class PushCreator {
         return singleton;
     }
 
-    PushCreator(Context context, Bee bee, BaseBeeModel data){
+    PushCreator(Context context, Bee bee, BeeModel data){
         this.context = context;
         this.bee = bee;
         this.data = data;
@@ -51,12 +51,12 @@ public class PushCreator {
     public static class Builder {
         private final Context context;
         private final Bee bee;
-        private final BaseBeeModel data;
+        private final BeeModel data;
 
         /**
          * Start building a new {@link PushCreator} instance.
          */
-        public Builder(Context context, Bee bee,BaseBeeModel data) {
+        public Builder(Context context, Bee bee,BeeModel data) {
             if (context == null) {
                 throw new IllegalArgumentException("Context must not be null.");
             }
@@ -71,7 +71,7 @@ public class PushCreator {
         public PushCreator build() {
             Context context = this.context;
             Bee bee = this.bee;
-            BaseBeeModel data = this.data;
+            BeeModel data = this.data;
             return new PushCreator(context, bee, data);
         }
     }

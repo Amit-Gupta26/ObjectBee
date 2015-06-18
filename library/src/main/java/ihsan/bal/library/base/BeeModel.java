@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by ihsan on 23/05/15.
  */
-public class BaseBeeModel implements Serializable {
+public class BeeModel implements Serializable {
 
     public boolean deletepullobject;
 
@@ -18,7 +18,7 @@ public class BaseBeeModel implements Serializable {
 
     public String responsemessage;
 
-    public BaseBeeModel(String referencesname){
+    public BeeModel(String referencesname){
         if (referencesname!=null)
         this.referencesname = referencesname;
     }

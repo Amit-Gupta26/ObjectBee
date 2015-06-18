@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import ihsan.bal.library.base.BaseModel;
+import ihsan.bal.library.base.ViewModel;
 import ihsan.bal.library.bee.PullObject;
 
 
@@ -20,10 +20,10 @@ public class DetailActivity extends Activity {
 
 
         PullObject pullObject = new PullObject();
-        Object object = pullObject.pullBeeObject(this, BaseModel.class);
+        Object object = pullObject.pullBeeObject(this, ViewModel.class);
         if (object!=null) {
-            BaseModel model = (BaseModel)object;
-            textView.setText(model.title);
+            ViewModel model = (ViewModel)object;
+            textView.setText(model.name+"-"+model.age);
         }
     }
 

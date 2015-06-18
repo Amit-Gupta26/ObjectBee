@@ -2,7 +2,7 @@ package ihsan.bal.library.singleton;
 
 import android.content.Context;
 
-import ihsan.bal.library.base.BaseBeeModel;
+import ihsan.bal.library.base.BeeModel;
 import ihsan.bal.library.bee.PullObject;
 import ihsan.bal.library.bee.PushObject;
 import ihsan.bal.library.engine.ObjectEngine;
@@ -36,12 +36,16 @@ public class Bee {
         this.engine = engine;
     }
 
-    public PushCreator been(BaseBeeModel data){
+    public PushCreator been(BeeModel data){
         return new PushCreator(context,singleton,data);
     }
 
-    public void pull(){
+    public ObjectWrapper mapper(Class classes){
+        return new ObjectWrapper(context,singleton,classes);
+    }
 
+    public PullCreator pull(BeeModel data){
+        return new PullCreator(context,singleton,data);
     }
 
     public static class Builder {
