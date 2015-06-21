@@ -1,9 +1,8 @@
 package ihsan.bal.library.singleton;
 
 import android.content.Context;
-import ihsan.bal.library.base.BeeModel;
+
 import ihsan.bal.library.bee.PullObject;
-import ihsan.bal.library.bee.PushObject;
 
 /**
  * Created by ihsan on 04/06/15.
@@ -13,9 +12,9 @@ public class PullCreator {
     static volatile PullCreator singleton = null;
     private final Context context;
     final Bee bee;
-    final BeeModel data;
+    final Class aClass;
 
-    public static PullCreator with(Context context, Bee bee, BeeModel data) {
+    public static PullCreator with(Context context, Bee bee, Class data) {
         if (singleton == null) {
             synchronized (PullCreator.class) {
                 if (singleton == null) {
@@ -26,48 +25,59 @@ public class PullCreator {
         return singleton;
     }
 
-    PullCreator(Context context, Bee bee, BeeModel data) {
+    PullCreator(Context context, Bee bee, Class data) {
         this.context = context;
         this.bee = bee;
-        this.data = data;
+        this.aClass = data;
     }
 
     /**
-     * Save data and start activity
+     * Get pushed object
      */
-    public Object pull(Class baseModelClass) {
+    public Object pull() {
         PullObject pullObject = new PullObject();
-        return pullObject.pullBeeObject(context, baseModelClass);
-    }
-
-    public Object pull(Class baseModelClass, boolean delete) {
-        PullObject pullObject = new PullObject();
-        return pullObject.pullBeeObject(context, baseModelClass, delete);
+        return pullObject.pullBeeObject(context, aClass);
     }
 
     /**
-     * Only save data not starting activity
+     * Get pushed object and delete it.
      */
-    public void push() {
-        PushObject pushObject = new PushObject();
-        pushObject.pushBeeObject(context, data);
+    public Object pull(boolean delete) {
+        PullObject pullObject = new PullObject();
+        return pullObject.pullBeeObject(context, aClass, delete);
+    }
+
+    /**
+     * Get pushed object with tag name
+     */
+    public Object pull(String tag) {
+        PullObject pullObject = new PullObject();
+        return pullObject.pullBeeObject(context, aClass);
+    }
+
+    /**
+     * Get pushed object with tag and dalete it.
+     */
+    public Object pull(boolean delete, String tag) {
+        PullObject pullObject = new PullObject();
+        return pullObject.pullBeeObject(context, aClass, delete, tag);
     }
 
     public static class Builder {
         private final Context context;
         private final Bee bee;
-        private final BeeModel data;
+        private final Class aClass1;
 
         /**
          * Start building a new {@link PullCreator} instance.
          */
-        public Builder(Context context, Bee bee, BeeModel data) {
+        public Builder(Context context, Bee bee, Class data) {
             if (context == null) {
                 throw new IllegalArgumentException("Context must not be null.");
             }
             this.bee = bee;
             this.context = context.getApplicationContext();
-            this.data = data;
+            this.aClass1 = data;
         }
 
         /**
@@ -76,7 +86,7 @@ public class PullCreator {
         public PullCreator build() {
             Context context = this.context;
             Bee bee = this.bee;
-            BeeModel data = this.data;
+            Class data = this.aClass1;
             return new PullCreator(context, bee, data);
         }
     }

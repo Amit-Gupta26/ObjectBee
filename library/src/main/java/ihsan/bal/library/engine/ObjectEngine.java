@@ -16,7 +16,13 @@ import ihsan.bal.library.base.BeeModel;
 public class ObjectEngine {
 
     public static boolean savePushedObject(Context context, Object object) {
-        final File suspend_f = new File(context.getCacheDir(), object.getClass().getSimpleName());
+        String fileName = null;
+        fileName = object.getClass().getSimpleName();
+        BeeModel model = (BeeModel) object;
+        if (model != null && model.referencesname != null && !model.referencesname.equals("")) {
+            fileName += model.referencesname;
+        }
+        final File suspend_f = new File(context.getCacheDir(), fileName);
 
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
@@ -36,6 +42,42 @@ public class ObjectEngine {
             } catch (Exception e) { /* do nothing */ }
         }
         return keep;
+    }
+
+    public static Object getPullObject(Context context, Class objectClass, String tag) {
+        String fileName = null;
+        fileName = objectClass.getSimpleName();
+        if (tag != null && !tag.equals("")) {
+            fileName += tag;
+        }
+        final File suspend_f = new File(context.getCacheDir(), fileName);
+
+        Object simpleClass = null;
+        FileInputStream fis = null;
+        ObjectInputStream is = null;
+
+        try {
+            fis = new FileInputStream(suspend_f);
+            is = new ObjectInputStream(fis);
+            simpleClass = (Object) is.readObject();
+        } catch (Exception e) {
+            String val = e.getMessage();
+        } finally {
+            try {
+                if (fis != null) fis.close();
+                if (is != null) is.close();
+            } catch (Exception e) {
+            } finally {
+                if (simpleClass != null) {
+                    BeeModel beeModel = (BeeModel) simpleClass;
+                    if (beeModel.deletepullobject)
+                        suspend_f.delete();
+                } else
+                    return null;
+            }
+        }
+
+        return simpleClass;
     }
 
     public static Object getPullObject(Context context, Class objectClass) {
@@ -71,6 +113,42 @@ public class ObjectEngine {
 
     public static Object getPullObject(Context context, Class objectClass, boolean clearcache) {
         final File suspend_f = new File(context.getCacheDir(), objectClass.getSimpleName());
+
+        Object simpleClass = null;
+        FileInputStream fis = null;
+        ObjectInputStream is = null;
+
+        try {
+            fis = new FileInputStream(suspend_f);
+            is = new ObjectInputStream(fis);
+            simpleClass = (Object) is.readObject();
+        } catch (Exception e) {
+            String val = e.getMessage();
+        } finally {
+            try {
+                if (fis != null) fis.close();
+                if (is != null) is.close();
+            } catch (Exception e) {
+            } finally {
+                if (simpleClass != null) {
+                    BeeModel beeModel = (BeeModel) simpleClass;
+                    if (beeModel.deletepullobject || clearcache)
+                        suspend_f.delete();
+                } else
+                    return null;
+            }
+        }
+
+        return simpleClass;
+    }
+
+    public static Object getPullObject(Context context, Class objectClass, boolean clearcache, String tag) {
+        String fileName = null;
+        fileName = objectClass.getSimpleName();
+        if (tag != null && !tag.equals("")) {
+            fileName += tag;
+        }
+        final File suspend_f = new File(context.getCacheDir(), fileName);
 
         Object simpleClass = null;
         FileInputStream fis = null;

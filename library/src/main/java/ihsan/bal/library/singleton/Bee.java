@@ -40,12 +40,8 @@ public class Bee {
         return new PushCreator(context,singleton,data);
     }
 
-    public ObjectWrapper mapper(Class classes){
-        return new ObjectWrapper(context,singleton,classes);
-    }
-
-    public PullCreator pull(BeeModel data){
-        return new PullCreator(context,singleton,data);
+    public PullCreator been(Class classes) {
+        return new PullCreator(context, singleton, classes);
     }
 
     public static class Builder {

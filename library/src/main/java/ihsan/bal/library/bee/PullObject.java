@@ -19,4 +19,14 @@ public class PullObject {
         return object;
     }
 
+    public Object pullBeeObject(Context context, Class classses, String tag) {
+        Object object = ObjectEngine.getPullObject(context, classses, tag);
+        return object;
+    }
+
+    public Object pullBeeObject(Context context, Class classses, boolean clearcache, String tag) {
+        Object object = ObjectEngine.getPullObject(context, classses, clearcache, tag);
+        return object;
+    }
+
 }

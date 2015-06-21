@@ -33,7 +33,7 @@ public class PushCreator {
     }
 
     /**
-     * Save data and start activity
+     * Save aClass and start activity
      * */
     public void pushAndStart(Class activityClass){
         PushObject pushObject = new PushObject();
@@ -41,7 +41,7 @@ public class PushCreator {
     }
 
     /**
-     * Only save data not starting activity
+     * Only save aClass not starting activity
      * */
     public void push(){
         PushObject pushObject = new PushObject();
