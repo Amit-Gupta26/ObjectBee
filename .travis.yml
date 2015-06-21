@@ -1,24 +1,28 @@
-language: android
-jdk:
-  - openjdk6
-  - oraclejdk7
-
-# http://docs.travis-ci.com/user/languages/android/
-android:
-  components:
-    - build-tools-21.1.2
-    - android-10
-
-before_script:
+language: java
+jdk: oraclejdk7
+branches:
+  only:
+    - master
+before_install:
   - chmod +x gradlew
-#  - echo no | android create avd --force -n test -t android-10 --abi armeabi
-#  - emulator -avd test -no-skin -no-audio -no-window &
-#  - android-wait-for-emulator
-#  - adb shell input keyevent 82 &
-
-# Currently connectedCheck fails, so don't run unit test on Emulator for now. Issue:
-# com.android.builder.testing.ConnectedDevice > hasTests[test(AVD) - 2.3.3] FAILED
-# No tests found.
-
+  # Install base Android SDK
+  - sudo apt-get update -qq
+  - if [ `uname -m` = x86_64 ]; then sudo apt-get install -qq --force-yes libgd2-xpm ia32-libs ia32-libs-multiarch > /dev/null; fi
+  - wget http://dl.google.com/android/android-sdk_r22.0.5-linux.tgz
+  - tar xzf android-sdk_r22.0.5-linux.tgz
+  - export ANDROID_HOME=$PWD/android-sdk-linux
+  - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+  # install android build tools
+  - wget https://dl-ssl.google.com/android/repository/build-tools_r19.0.1-linux.zip
+  - unzip build-tools_r19.0.1-linux.zip -d $ANDROID_HOME
+  - mkdir -p $ANDROID_HOME/build-tools/
+  - mv $ANDROID_HOME/android-4.4.2 $ANDROID_HOME/build-tools/19.0.1
+  # Install required components.
+  - echo yes | android update sdk --filter platform-tools --no-ui --force > /dev/null
+  - echo yes | android update sdk --filter android-19 --no-ui --force > /dev/null
+  - echo yes | android update sdk --filter extra-android-support --no-ui --force > /dev/null
+  - echo yes | android update sdk --filter extra-android-m2repository --no-ui --force > /dev/null
+install:
+  - true
 script:
-    - TERM=dumb ./gradlew check
+  - TERM=dumb ./gradlew test assembleDebug
