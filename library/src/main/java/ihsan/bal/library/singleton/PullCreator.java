@@ -52,7 +52,7 @@ public class PullCreator {
      */
     public Object pull(String tag) {
         PullObject pullObject = new PullObject();
-        return pullObject.pullBeeObject(context, aClass);
+        return pullObject.pullBeeObject(context, aClass,tag);
     }
 
     /**

@@ -2,11 +2,14 @@ package ihsan.bal.library.engine;
 
 import android.content.Context;
 
+import org.json.JSONException;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
 import ihsan.bal.library.base.BeeModel;
 
@@ -39,7 +42,17 @@ public class ObjectEngine {
                 if (oos != null) oos.close();
                 if (fos != null) fos.close();
                 if (keep == false) suspend_f.delete();
-            } catch (Exception e) { /* do nothing */ }
+            } catch (Exception e) {
+                keep = false;
+            }
+        }
+        if (keep){
+            PreferencesEngine engine = new PreferencesEngine(context);
+            try {
+                engine.addObjctToPreferences(fileName);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
         return keep;
     }
@@ -139,6 +152,22 @@ public class ObjectEngine {
             }
         }
 
+        if (simpleClass != null){
+            PreferencesEngine engine = new PreferencesEngine(context);
+            try {
+                ArrayList<String> prefList = new ArrayList<>(engine.getSavedObjectReference());
+                int i = 0;
+                for (String item : prefList){
+                    if (item.equals(objectClass.getSimpleName())){
+                        engine.removeSelectedItem(item,i);
+                    }
+                    i += 1;
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
         return simpleClass;
     }
 
@@ -172,6 +201,22 @@ public class ObjectEngine {
                         suspend_f.delete();
                 } else
                     return null;
+            }
+        }
+
+        if (simpleClass != null){
+            PreferencesEngine engine = new PreferencesEngine(context);
+            try {
+                ArrayList<String> prefList = new ArrayList<>(engine.getSavedObjectReference());
+                int i = 0;
+                for (String item : prefList){
+                    if (item.equals(fileName)){
+                        engine.removeSelectedItem(item,i);
+                    }
+                    i += 1;
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
 

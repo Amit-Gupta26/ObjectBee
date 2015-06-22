@@ -17,10 +17,12 @@ public class DetailActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         textView = (TextView)findViewById(R.id.textView);
-        Object object = Bee.with(this).been(ViewModel.class).pull("tag1");
+        Object object = Bee.with(this).been(ViewModel.class).pull(true,"tag1");
         if (object != null) {
             ViewModel model = (ViewModel) object;
-            textView.setText(model.referencesname);
+            textView.setText("name:"+model.name+"\n"+
+                    "age:"+model.age+"\n"+
+                    "title:"+model.title+"\n");
         }
     }
 
