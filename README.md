@@ -1,5 +1,6 @@
 ObjectBee
 =======
+[![License](https://img.shields.io/github/license/blipinsk/ObjectBee.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0)
 [![Build Status](https://travis-ci.org/ihsanbal/ObjectBee.svg?branch=master)](https://travis-ci.org/ihsanbal/ObjectBee)
 
 A simple data transporte library
