@@ -33,7 +33,10 @@ or Maven:
    <version>v1.0</version>
 </dependency>
 ```
+ToDo
+Change object cache algorithm,maybe use a good library
 
+--------
 Snapshots of the development version are available in [Sonatype's `snapshots` repository][snap].
 
 
