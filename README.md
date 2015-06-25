@@ -104,6 +104,10 @@ And get the data (Will contribute)
 ```java
 Bee.with(this).been(BaseModel.class).pull();
 ```
+And get the data with tag (Will contribute)
+```java
+Bee.with(this).been(BaseModel.class).pull("taggedObjectViewModel");
+```
 And get the data and delete on catche (Will contribute)
 ```java
 Bee.with(this).been(BaseModel.class).pull(true);
