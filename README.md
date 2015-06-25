@@ -15,7 +15,7 @@ repositories {
 	        url "https://jitpack.io"
 	    }
 	}
---------
+	
 dependencies {
 	        compile 'com.github.ihsanbal:ObjectBee:v1.0'
 	}
@@ -23,15 +23,15 @@ dependencies {
 or Maven:
 ```xml
 <repository>
-	    <id>jitpack.io</id>
-	    <url>https://jitpack.io</url>
-	</repository>
----------
+   <id>jitpack.io</id>
+   <url>https://jitpack.io</url>
+</repository>
+
 <dependency>
-	    <groupId>com.github.ihsanbal</groupId>
-	    <artifactId>ObjectBee</artifactId>
-	    <version>v1.0</version>
-	</dependency>
+   <groupId>com.github.ihsanbal</groupId>
+   <artifactId>ObjectBee</artifactId>
+   <version>v1.0</version>
+</dependency>
 ```
 
 Snapshots of the development version are available in [Sonatype's `snapshots` repository][snap].
