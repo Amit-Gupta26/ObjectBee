@@ -3,12 +3,10 @@ ObjectBee
 
 A simple data transporte library
 
-[![Build Status](https://travis-ci.org/ihsanbal/ObjectBee.svg?branch=master)](https://travis-ci.org/ihsanbal/ObjectBee)
-
 Download
 --------
 
-Download [the latest JAR][2] or grab via Gradle:
+Download [the latest AAR][2] or grab via Gradle:
 ```groovy
 repositories {
 	    maven {
