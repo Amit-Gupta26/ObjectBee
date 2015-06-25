@@ -35,15 +35,10 @@ or Maven:
    <version>1.0.0</version>
 </dependency>
 ```
-ToDo
+TODO
 --------
 Change object cache algorithm,maybe use a good library
 And reload this README file with a proper english :)
-
---------
-Snapshots of the development version are available in [Sonatype's `snapshots` repository][snap].
-
-
 
 Usage
 --------
