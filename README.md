@@ -17,7 +17,7 @@ repositories {
 	}
 	
 dependencies {
-	        compile 'com.github.ihsanbal:ObjectBee:v1.0-pre'
+	        compile 'com.github.ihsanbal:ObjectBee:1.0.0'
 	}
 ```
 or Maven:
@@ -30,7 +30,7 @@ or Maven:
 <dependency>
    <groupId>com.github.ihsanbal</groupId>
    <artifactId>ObjectBee</artifactId>
-   <version>v1.0-pre</version>
+   <version>1.0.0</version>
 </dependency>
 ```
 ToDo
