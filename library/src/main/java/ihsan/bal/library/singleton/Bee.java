@@ -2,10 +2,15 @@ package ihsan.bal.library.singleton;
 
 import android.content.Context;
 
+import org.json.JSONException;
+
+import java.util.ArrayList;
+
 import ihsan.bal.library.base.BeeModel;
 import ihsan.bal.library.bee.PullObject;
 import ihsan.bal.library.bee.PushObject;
 import ihsan.bal.library.engine.ObjectEngine;
+import ihsan.bal.library.engine.PreferencesEngine;
 
 /**
  * Created by ihsan on 04/06/15.
@@ -18,30 +23,57 @@ public class Bee {
     final PushObject push;
     final ObjectEngine engine;
 
-    public static Bee with( Context context) {
+    /**
+     * Create singletone builder
+     * @param context
+     * */
+    public static Bee with(Context context) {
         if (singleton == null) {
             synchronized (Bee.class) {
-                if (singleton == null) {
-                    singleton = new Builder(context).build();
-                }
+                singleton = new Builder(context).build();
             }
         }
         return singleton;
     }
 
-    Bee(Context context, PullObject pull, PushObject push, ObjectEngine engine){
+    Bee(Context context, PullObject pull, PushObject push, ObjectEngine engine) {
         this.context = context;
         this.pull = pull;
         this.push = push;
         this.engine = engine;
     }
 
-    public PushCreator been(BeeModel data){
-        return new PushCreator(context,singleton,data);
+    /**
+     * push object instance
+     * @param data
+     * */
+    public PushCreator been(BeeModel data) {
+        return new PushCreator(context, singleton, data);
     }
 
+    /**
+     * pull object instance
+     * @param classes
+     * */
     public PullCreator been(Class classes) {
         return new PullCreator(context, singleton, classes);
+    }
+
+    /**
+     * Clear all cached objects
+     */
+    public void clear() {
+        PreferencesEngine preferencesEngine = new PreferencesEngine(context);
+        ArrayList<String> objectList = null;
+        try {
+            objectList = new ArrayList<String>(preferencesEngine.getSavedObjectReference());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } finally {
+            for (String item : objectList) {
+                ObjectEngine.deleteObjects(context, item);
+            }
+        }
     }
 
     public static class Builder {

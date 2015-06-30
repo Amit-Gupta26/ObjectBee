@@ -17,9 +17,7 @@ public class PullCreator {
     public static PullCreator with(Context context, Bee bee, Class data) {
         if (singleton == null) {
             synchronized (PullCreator.class) {
-                if (singleton == null) {
-                    singleton = new Builder(context, bee, data).build();
-                }
+                singleton = new Builder(context, bee, data).build();
             }
         }
         return singleton;
@@ -52,7 +50,7 @@ public class PullCreator {
      */
     public Object pull(String tag) {
         PullObject pullObject = new PullObject();
-        return pullObject.pullBeeObject(context, aClass,tag);
+        return pullObject.pullBeeObject(context, aClass, tag);
     }
 
     /**

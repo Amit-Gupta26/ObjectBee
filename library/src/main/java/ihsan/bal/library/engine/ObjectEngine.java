@@ -57,6 +57,18 @@ public class ObjectEngine {
         return keep;
     }
 
+    public static boolean deleteObjects(Context context, String objectName) {
+        String fileName = null;
+        fileName = objectName;
+
+        final File suspend_f = new File(context.getCacheDir(), fileName);
+        if (suspend_f.exists()){
+            suspend_f.delete();
+            return true;
+        }else
+        return false;
+    }
+
     public static Object getPullObject(Context context, Class objectClass, String tag) {
         String fileName = null;
         fileName = objectClass.getSimpleName();
