@@ -1,5 +1,7 @@
 ObjectBee
 =======
+
+[![Join the chat at https://gitter.im/ihsanbal/ObjectBee](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ihsanbal/ObjectBee?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 A simple data transporte library
 
 [![License](http://img.shields.io/badge/License-Apache%202-brightgreen.svg?style=flat)](https://github.com/ihsanbal/ObjectBee/blob/master/LICENSE)
