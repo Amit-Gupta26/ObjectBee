@@ -1,8 +1,9 @@
 ObjectBee
 =======
 
-A simple data transporte library [![Join the chat at https://gitter.im/ihsanbal/ObjectBee](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ihsanbal/ObjectBee?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+A simple data transporte library [![Join the chat at 
 
+https://gitter.im/ihsanbal/ObjectBee](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ihsanbal/ObjectBee?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![License](http://img.shields.io/badge/License-Apache%202-brightgreen.svg?style=flat)](https://github.com/ihsanbal/ObjectBee/blob/master/LICENSE)
 [![Build Status](https://travis-ci.org/ihsanbal/ObjectBee.svg?branch=master)](https://travis-ci.org/ihsanbal/ObjectBee)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-ObjectBee-green.svg?style=flat)](http://android-arsenal.com/details/1/2041)
